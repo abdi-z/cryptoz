@@ -1,4 +1,7 @@
 export { default as Navbar } from "./Navbar";
 export { default as Home } from "./Home";
-export { default as About } from "./About";
-export { default as Contact } from "./Contact";
+export { default as Cryptocurrencies } from "./Cryptocurrencies";
+export { default as Coin } from "./Coin";
+export { default as Exchanges } from "./Exchanges";
+export { default as News } from "./News";
+

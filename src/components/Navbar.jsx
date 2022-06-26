@@ -22,13 +22,13 @@ export default function Navbar() {
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item icon={<FundOutlined />}>
-            <Link to="/cryptocurrencies">Home</Link>
+            <Link to="/cryptocurrencies">Cryptos</Link>
           </Menu.Item>
           <Menu.Item icon={<MoneyCollectOutlined />}>
-            <Link to="/exchanges">Home</Link>
+            <Link to="/exchanges">Exchanges</Link>
           </Menu.Item>
           <Menu.Item icon={<BulbOutlined />}>
-            <Link to="/news">Home</Link>
+            <Link to="/news">News</Link>
           </Menu.Item>
         </Menu>
       </div>
