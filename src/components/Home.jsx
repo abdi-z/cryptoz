@@ -11,6 +11,23 @@ export default function Home() {
       <Title level={2} className="heading">
         Global Crypto Market Stats
       </Title>
+      <Row>
+        <Col span={12}>
+          <Statistic title="Total Cryptocurrencies" value="204" />
+        </Col>
+        <Col span={12}>
+          <Statistic title="Total Exchanges" value="204" />
+        </Col>
+        <Col span={12}>
+          <Statistic title="Total Market cap" value="204" />
+        </Col>
+        <Col span={12}>
+          <Statistic title="Total 24h volume" value="204" />
+        </Col>
+        <Col span={12}>
+          <Statistic title="Total Markets" value="204" />
+        </Col>
+      </Row>
     </>
   );
 }
