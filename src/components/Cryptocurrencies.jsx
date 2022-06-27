@@ -23,12 +23,14 @@ export default function Cryptocurrencies({ simplified }) {
 
   return (
     <div>
-      <div className="search-crypto">
-        <Input
-          placeholder="e.g. BTC"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+      {!simplified && (
+        <div className="search-crypto">
+          <Input
+            placeholder="e.g. BTC"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      )}
       {cryptos?.map((item) => {
         return (
           <Space direction="vertical" size="middle" style={{ display: "flex" }}>
