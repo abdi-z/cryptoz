@@ -4,20 +4,30 @@ import { Link } from "react-router-dom";
 import { Card, Row, Col, Input, Statistic, Space } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
-export default function Cryptocurrencies() {
-  const { data, isFetching } = useGetCryptosQuery();
+export default function Cryptocurrencies({ simplified }) {
+  const count = simplified ? 10 : 100;
+  const { data, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState(data?.data?.coins);
   console.log(cryptos);
+  if (isFetching) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      {cryptos.map((item) => {
+      {cryptos?.map((item) => {
         return (
           <Space direction="vertical" size="middle" style={{ display: "flex" }}>
             <Link to={`/cryptocurrencies/${item.uuid}`}>
               <Card
                 title={item.name}
-                extra={<img className="crypto-image" src={item.iconUrl} style={{width:"50px"}}/>}
+                extra={
+                  <img
+                    className="crypto-image"
+                    src={item.iconUrl}
+                    style={{ width: "50px" }}
+                  />
+                }
                 hoverable>
                 <Row gutters={[32, 32]}>
                   <Col span={12}>

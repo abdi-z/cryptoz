@@ -10,7 +10,7 @@ import News from "./News";
 const { Title } = Typography;
 
 export default function Home() {
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
   console.log(data);
 
@@ -59,7 +59,7 @@ export default function Home() {
           <Link to="/cryptocurrencies">Show More</Link>
         </Title>
       </div>
-      <Cryptocurrencies limit={10} />
+      <Cryptocurrencies simplified/>
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Latest Crypto News
@@ -68,7 +68,7 @@ export default function Home() {
           <Link to="/news">Show More</Link>
         </Title>
       </div>
-      <News simplified />
+      <News/>
     </>
   );
 }
