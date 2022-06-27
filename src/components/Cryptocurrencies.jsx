@@ -31,43 +31,28 @@ export default function Cryptocurrencies({ simplified }) {
           />
         </div>
       )}
-      {cryptos?.map((item) => {
-        return (
-          <Space direction="vertical" size="middle" style={{ display: "flex" }}>
-            <Link to={`/cryptocurrencies/${item.uuid}`}>
+      <Row gutter={[42, 42]} className="crypto-card-container">
+        {cryptos?.map((currency) => (
+          <Col
+            xs={24}
+            sm={12}
+            lg={6}
+            className="crypto-card"
+            key={currency.uuid}>
+            {/* Note: Change currency.id to currency.uuid  */}
+            <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
               <Card
-                title={item.name}
-                extra={
-                  <img
-                    className="crypto-image"
-                    src={item.iconUrl}
-                    style={{ width: "50px" }}
-                  />
-                }
+                title={`${currency.rank}. ${currency.name}`}
+                extra={<img className="crypto-image" src={currency.iconUrl} />}
                 hoverable>
-                <Row gutters={[32, 32]}>
-                  <Col span={12}>
-                    <Statistic title="Price" value={millify(item.price)} />
-                  </Col>
-                  <Col span={12}>
-                    <Statistic
-                      title="Market cap"
-                      value={millify(item.marketCap)}
-                    />
-                  </Col>
-                  <Col span={12}>
-                    <Statistic title="Volume" value={item.lowVolume} />
-                  </Col>
-
-                  <Col span={12}>
-                    <Statistic title="Change 1h" value={item.change} />
-                  </Col>
-                </Row>
+                <p>Price: {millify(currency.price)}</p>
+                <p>Market Cap: {millify(currency.marketCap)}</p>
+                <p>Daily Change: {currency.change}%</p>
               </Card>
             </Link>
-          </Space>
-        );
-      })}
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 }
