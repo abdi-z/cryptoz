@@ -14,7 +14,7 @@ import {
 function App() {
   return (
     <div className="app">
-      <BrowserRouter>
+    
         <div className="navbar">
           <Navbar />
         </div>
@@ -49,7 +49,7 @@ function App() {
             </Space>
           </div>
         </div>
-      </BrowserRouter>
+     
     </div>
   );
 }
