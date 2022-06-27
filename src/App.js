@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Layout, Typography, Space } from "antd";
 import {
   Navbar,
@@ -14,13 +14,14 @@ import {
 function App() {
   return (
     <div className="app">
-      <div className="main">
-        <Layout>
-          <div className="routes">
-            <BrowserRouter>
-              <div className="navbar">
-                <Navbar />
-              </div>
+      <BrowserRouter>
+        <div className="navbar">
+          <Navbar />
+        </div>
+
+        <div className="main">
+          <Layout>
+            <div className="routes">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
@@ -31,11 +32,24 @@ function App() {
                 <Route path="/exchanges" element={<Exchanges />} />
                 <Route path="/news" element={<News />} />
               </Routes>
-            </BrowserRouter>
+            </div>
+          </Layout>
+
+          <div className="footer">
+            <Typography.Title
+              level={5}
+              style={{ color: "white", textAlign: "center" }}>
+              Made with <Space>❤</Space> by {"Abdul Rehman Aziz "}
+            </Typography.Title>
+            <Space>
+              <Link to="/">Home</Link>
+              <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+              <Link to="/exchanges">Exchanges</Link>
+              <Link to="/news">News</Link>
+            </Space>
           </div>
-        </Layout>
-      </div>
-      <div className="footer"></div>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
