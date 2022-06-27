@@ -59,7 +59,7 @@ export default function Home() {
           <Link to="/cryptocurrencies">Show More</Link>
         </Title>
       </div>
-      <Cryptocurrencies simplified/>
+      <Cryptocurrencies limit={10} />
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Latest Crypto News
@@ -68,7 +68,7 @@ export default function Home() {
           <Link to="/news">Show More</Link>
         </Title>
       </div>
-      <News simplified/>
+      <News simplified />
     </>
   );
 }
